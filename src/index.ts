@@ -1,6 +1,7 @@
 import * as sdk from '@botpress/sdk'
 import * as bp from '.botpress'
 import { AzureOpenAIClient } from './azureOpenAIClient'
+import { ReferenceConstraintError } from '@botpress/client'
 
 export default new bp.Integration({
   register: async () => {
@@ -8,14 +9,16 @@ export default new bp.Integration({
      * This is called when an integration configuration is saved.
      * You should use this handler to instanciate ressources in the external service and ensure that the configuration is valid.
      */
-    throw new sdk.RuntimeError('Invalid configuration') // replace this with your own validation logic
+    console.log('Registering Azure OpenAI integration')
+    //throw new sdk.RuntimeError('Invalid configuration') // replace this with your own validation logic
   },
   unregister: async () => {
     /**
      * This is called when a bot removes the integration.
      * You should use this handler to instanciate ressources in the external service and ensure that the configuration is valid.
      */
-    throw new sdk.RuntimeError('Invalid configuration') // replace this with your own validation logic
+    console.log('Unregistering Azure OpenAI integration')
+    //throw new sdk.RuntimeError('Invalid configuration') // replace this with your own validation logic
   },
   actions: {
     generateContent: async ({input}) => {
